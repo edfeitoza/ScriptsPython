@@ -2,15 +2,17 @@ import requests
 from lxml import html
 
 r = requests.get(
-    "https://10.0.2.38/hp/device/this.LCDispatcher?nav=hp.Usage")
+    "https://en.wikipedia.org/wiki/Outline_of_the_Marvel_Cinematic_Universe")
 
 tree = html.fromstring(r.content)
 
 #print (tree)
 
 v1 = tree.xpath(
-    '//*[@id="tbl-9160"]/tbody/tr[6]/td[2]/div')#[0].strip()
+    '//*[@id="mw-content-text"]/div[1]/table[2]/tbody/tr[*]/th/i/a/text()')#[0].strip()
 print(v1)
+for v2 in v1:
+    print (v2)
 '''
 v1 = tree.xpath(
     '//*[@id="api"]/div/div[4]/div/table/tbody/tr[9]/td[1]/text()')[0].strip()
